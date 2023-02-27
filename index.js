@@ -39,6 +39,16 @@ const runVideo = (src) => {
       player.currentTime += timeToSkip;
   };
 
+
+  //adding buttons
+  const btnPrev = document.getElementById("btn-prev");
+  const btnPlay = document.getElementById("btn-play");
+  const btnNext = document.getElementById("btn-next");
+
+  btnPrev.addEventListener("click", () => movePlayer("left"));
+  btnPlay.addEventListener("click", () => playPause());
+  btnNext.addEventListener("click", () => movePlayer("right"));
+
   document.addEventListener("keydown", handleKey);
   player.addEventListener("click", playPause);
 
@@ -61,10 +71,8 @@ const runVideo = (src) => {
         break;
       default:
         console.log("undefined key:", e.keyCode);
-    
     }
   }
-
 };
 
 runVideo("https://cdn-media.brightline.tv/demo/disney-beta/assets/videos/bbb_sunflower_1080p_30fps_normal.mp4");
