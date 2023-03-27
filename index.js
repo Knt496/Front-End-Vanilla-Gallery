@@ -39,6 +39,24 @@ const runVideo = (src) => {
       player.currentTime += timeToSkip;
   };
 
+  const formatTime = (time) => {
+    let min     = Math.floor(time / 60);
+    let sec     = Math.round(time % 60);
+
+    min < 10 && (min = `0${min}`);
+    sec < 10 && (sec = `0${sec}`);
+
+    return `${min} : ${sec}`;
+  };
+
+  const updateTimer = () => {
+    const timer = document.getElementById("timer");
+    const time  = player.currentTime; 
+    const totalTime =  player.duration;
+  
+    timer.innerHTML = `${formatTime(time)} / ${formatTime(totalTime)}`;
+  };
+
 
   //adding buttons
   const btnPrev = document.getElementById("btn-prev");
@@ -51,6 +69,11 @@ const runVideo = (src) => {
 
   document.addEventListener("keydown", handleKey);
   player.addEventListener("click", playPause);
+  player.addEventListener("playing", () => {
+    setInterval(() => {
+      updateTimer();
+    }, 1000);
+  });
 
   function handleKey(e) {
     

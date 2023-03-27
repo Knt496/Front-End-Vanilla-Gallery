@@ -21,7 +21,7 @@ body, html {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: rgba(32, 134, 56, 0.3);
+  background: rgba(32, 97, 134, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,10 +30,20 @@ body, html {
 .remote-controls button {
   padding: 1%;
   border-radius: 10px;
-  background-color: rgba(32, 134, 56, 1);
+  background-color: rgb(32, 97, 134);
   color: white;
   border: none;
   margin-right: 0.5%;
   box-shadow: 2px 2px 2px black;
   font-weight: bold;
+}
+
+#timer {
+  padding: 1%;
+  position: absolute;
+  top: 6%;
+  right: 6%;
+  background: rgba(32, 97, 134, 0.3);
+  border-radius: 10px;
+  color: rgb(32, 97, 134);
 }
